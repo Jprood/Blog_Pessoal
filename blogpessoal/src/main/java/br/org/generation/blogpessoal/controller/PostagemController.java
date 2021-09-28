@@ -19,8 +19,8 @@ import br.org.generation.blogpessoal.model.Postagem;
 import br.org.generation.blogpessoal.repository.PostagemRepository;
 
 @RestController
-@RequestMapping("/postagens")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequestMapping("/postagens") 
+@CrossOrigin(origins = "*", allowedHeaders = "*") /** autoriza o front-and*/
 public class PostagemController {
 
 	@Autowired
