@@ -32,7 +32,7 @@ public class PostagemController {
 		return ResponseEntity.ok(postagemRepository.findAll());
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("/id/{id}")
 	public ResponseEntity<Postagem> getByid(@PathVariable long id) {
 
 		return postagemRepository.findById(id).map(resp -> ResponseEntity.ok(resp))
@@ -52,12 +52,12 @@ public class PostagemController {
 	}
 	
 	@PutMapping
-	public ResponseEntity<Postagem> puttPostagem (@RequestBody Postagem postagem) {
+	public ResponseEntity<Postagem> putPostagem (@RequestBody Postagem postagem) {
 		
 		return ResponseEntity.status(HttpStatus.OK).body(postagemRepository.save(postagem));
 	}
 	
-	@DeleteMapping ("/{id}")
+	@DeleteMapping ("/id/{id}")
 	public void deletePostagem(@PathVariable long id) {
 		
 		postagemRepository.deleteById(id);

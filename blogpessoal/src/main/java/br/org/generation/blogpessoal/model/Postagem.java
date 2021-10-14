@@ -24,11 +24,11 @@ public class Postagem {
 	private long id;
 
 	@NotNull(message = "O titulo não foi adicionado")
-	@Size(min = 5, max = 100, message = "O titulo deve ter no minimo 5 e no maximo 100 caracteres")
+	@Size(min = 2, max = 100, message = "O titulo deve ter no minimo 2 e no maximo 100 caracteres")
 	private String titulo;
 
 	@NotNull(message = "O texto não foi adicionado")
-	@Size(min = 10, max = 1000, message = "O texto deve ter no minimo 10 e no maximo 1000 caracteres")
+	@Size(min = 5, max = 1000, message = "O texto deve ter no minimo 5 e no maximo 1000 caracteres")
 	private String texto;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -37,7 +37,7 @@ public class Postagem {
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
 	private Tema tema;
-	
+
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
 	private Usuario usuario;
@@ -90,6 +90,5 @@ public class Postagem {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
 
 }

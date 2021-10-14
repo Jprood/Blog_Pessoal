@@ -32,14 +32,14 @@ public class TemaController {
 		return ResponseEntity.ok(temaRepository.findAll());
 	}
 	
-	@GetMapping("/id")
+	@GetMapping("/id/{id}")
 	public ResponseEntity<Tema> getByid(@PathVariable Long id) {
 		
 		return temaRepository.findById(id).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/descricao")
+	@GetMapping("/descricao/{descricao}")
 	public ResponseEntity<List<Tema>> getByDescricao(@PathVariable String descricao) {
 		
 		return ResponseEntity.ok(temaRepository.findAllByDescricaoContainingIgnoreCase(descricao));
@@ -57,7 +57,7 @@ public class TemaController {
 		return ResponseEntity.status(HttpStatus.OK).body(temaRepository.save(tema));
 	}
 	
-	@DeleteMapping("/id")
+	@DeleteMapping("id/{id}")
 	public void deleteTema(@PathVariable Long id) {
 	
 		temaRepository.deleteById(id);

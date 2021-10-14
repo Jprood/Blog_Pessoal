@@ -24,7 +24,7 @@ import br.org.generation.blogpessoal.repository.UsuarioRepository;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class UsuarioControllerTests {
+public class UsuarioControllerTest {
 
 	@Autowired
 	private TestRestTemplate testRestTemplate;
@@ -38,38 +38,43 @@ public class UsuarioControllerTests {
 	@BeforeAll
 	public void start() {
 
-		usuarioAdmin = new Usuario(0L, "Adiministrador", "adm@gmail.com", "adm12345");
+		usuarioAdmin = new Usuario(0L, "Administrador", "admin@email.com.br", "admin123");
 
 		if (!usuarioRepository.findByUsuario(usuarioAdmin.getUsuario()).isPresent()) {
 
 			HttpEntity<Usuario> request = new HttpEntity<Usuario>(usuarioAdmin);
-			testRestTemplate.exchange("/usuario/cadastro", HttpMethod.POST, request, Usuario.class);
+			testRestTemplate.exchange("/usuarios/cadastrar", HttpMethod.POST, request, Usuario.class);
+
 		}
 
-		usuario = new Usuario(0L, "Paulo", "paulo@gmail.com", "123456789");
+		usuario = new Usuario(0L, "Paulo Antunes", "paulo@email.com.br", "13465278");
+
 	}
 
 	@Test
 	@Order(1)
-	@DisplayName("Cadastrar usuario")
-	public void deveRegistrarPostUsuarioF() {
+	@DisplayName("✔ Cadastrar Usuário!")
+	public void deveRealizarPostUsuario() {
 
 		HttpEntity<Usuario> request = new HttpEntity<Usuario>(usuario);
 
-		ResponseEntity<Usuario> resp = testRestTemplate
-				.exchange("/usuario/cadastro", HttpMethod.POST, request, Usuario.class);
+		ResponseEntity<Usuario> resposta = testRestTemplate.exchange("/usuarios/cadastrar", HttpMethod.POST, request,
+				Usuario.class);
 
-		assertEquals(HttpStatus.CREATED, resp.getStatusCode());
+		assertEquals(HttpStatus.CREATED, resposta.getStatusCode());
+
 	}
 
 	@Test
 	@Order(2)
-	@DisplayName("Listar todos os usuarios")
+	@DisplayName("👍 Listar todos os Usuários!")
 	public void deveMostrarTodosUsuarios() {
 
-		ResponseEntity<String> resp = testRestTemplate.withBasicAuth("adm@gmail.com", "adm12345")
-				.exchange("/usuario/all", HttpMethod.GET, null, String.class);
+		ResponseEntity<String> resposta = testRestTemplate.withBasicAuth("admin@email.com.br", "admin123")
+				.exchange("/usuarios/all", HttpMethod.GET, null, String.class);
 
-		assertEquals(HttpStatus.OK, resp.getStatusCode());
+		assertEquals(HttpStatus.OK, resposta.getStatusCode());
+
 	}
+
 }
