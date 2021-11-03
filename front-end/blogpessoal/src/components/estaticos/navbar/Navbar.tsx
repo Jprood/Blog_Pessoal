@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 function Navbar() {
     return (
         <>
-            <AppBar position="static" style={{ backgroundColor: "#F2B138"}}>
+            <AppBar position="static" className="cor-navBar">
                 <Toolbar variant="dense">
                     <Box>
                         <Typography variant="h5" color="inherit">

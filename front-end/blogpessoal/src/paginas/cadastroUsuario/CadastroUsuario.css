@@ -1,12 +1,4 @@
-.bold {
-    font-weight: bold !important;
-}
-
-.textDecorationNone {
-    text-decoration: none !important;
-}
-
-.img {
+.imagemcadastro {
     background-image: url(https://i.imgur.com/I5SQWXD.png); 
     background-repeat: no-repeat; 
     width: 100vh; 
@@ -15,8 +7,21 @@
     background-position: center;
 }
 
-.button-login {
+.bold2 {
+    font-weight: bold !important;
+}
+
+.button-cadastrar {
     background-color: #003F63 !important; 
     color: white !important; 
     font-family: Cormorant, serif !important;
+}
+
+.button-cancelar {
+    font-family: Cormorant, serif !important;
+    margin-right: 20px !important;
+}
+
+.textDecorationNone1 {
+    text-decoration: none !important;
 }
