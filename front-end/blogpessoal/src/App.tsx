@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Home from './paginas/home/Home';
 import Login from './paginas/login/Login';
+import ListaTema from './components/temas/listatema/ListaTema';
+import ListaPostagem from './components/postagens/listapostagem/ListaPostagem';
 import Navbar from './components/estaticos/navbar/Navbar';
 import Footer from './components/estaticos/footer/Footer';
 import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
@@ -29,6 +31,14 @@ function App() {
 
           <Route path="/home">
             <Home />
+          </Route>
+
+          <Route path="/temas">
+            <ListaTema />
+          </Route>
+
+          <Route path="/posts">
+            <ListaPostagem />
           </Route>
         </div>
       </Switch>
