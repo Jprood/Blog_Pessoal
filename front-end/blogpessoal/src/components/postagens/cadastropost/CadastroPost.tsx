@@ -48,7 +48,7 @@ function CadastroPost() {
     }, [id])
 
     async function getTemas() {
-        await busca("/tema", setTemas, {
+        await busca("/temas/", setTemas, {
             headers: {
                 'Authorization': token
             }
@@ -56,7 +56,7 @@ function CadastroPost() {
     }
 
     async function findByIdPostagem(id: string) {
-        await buscaId(`postagens/${id}`, setPostagem, {
+        await buscaId(`postagens/id/${id}`, setPostagem, {
             headers: {
                 'Authorization': token
             }
@@ -77,7 +77,7 @@ function CadastroPost() {
         e.preventDefault()
 
         if (id !== undefined) {
-            put(`/postagens`, postagem, setPostagem, {
+            put(`/postagens/`, postagem, setPostagem, {
                 headers: {
                     'Authorization': token
                 }
@@ -111,7 +111,7 @@ function CadastroPost() {
                     <Select
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"
-                        onChange={(e) => buscaId(`/tema/${e.target.value}`, setTema, {
+                        onChange={(e) => buscaId(`/temas/id/${e.target.value}`, setTema, {
                             headers: {
                                 'Authorization': token
                             }

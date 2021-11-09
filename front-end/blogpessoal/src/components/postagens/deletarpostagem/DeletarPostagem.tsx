@@ -27,7 +27,7 @@ function DeletarPostagem() {
     }, [id])
 
     async function findById(id: string) {
-        buscaId(`/postagens/${id}`, setPosts, {
+        buscaId(`/postagens/id/${id}`, setPosts, {
             headers: {
               'Authorization': token
             }
@@ -36,7 +36,7 @@ function DeletarPostagem() {
 
         function sim() {
             history.push('/posts')
-            deleteId(`/postagens/${id}`, {
+            deleteId(`/postagens/id/${id}`, {
               headers: {
                 'Authorization': token
               }
