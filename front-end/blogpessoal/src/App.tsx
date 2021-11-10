@@ -11,11 +11,18 @@ import ListaPostagem from './components/postagens/listapostagem/ListaPostagem';
 import CadastroPost from './components/postagens/cadastropost/CadastroPost';
 import CadastroTema from './components/temas/cadastrotema/CadastroTema';
 import DeletarPostagem from './components/postagens/deletarpostagem/DeletarPostagem';
-import DeletarTema from './components/temas/deletartema/DeletarTema'
+import DeletarTema from './components/temas/deletartema/DeletarTema';
+import { Provider } from 'react-redux';
+import store from './store/store';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 function App() {
   return (
+    <Provider store={store}>
+      <ToastContainer/>
     <Router>
       <Navbar />
       <Switch>
@@ -67,6 +74,7 @@ function App() {
       </Switch>
       <Footer />
     </Router>
+    </Provider>
   );
 }
 

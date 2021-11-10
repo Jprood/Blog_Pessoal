@@ -20,6 +20,10 @@
     font-family: Cormorant, serif !important;
 }
 
+.textnone {
+    text-decoration: none;
+}
+
 .postagens {
     background-color: #353d40;
 }

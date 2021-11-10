@@ -3,6 +3,7 @@
 }
 
 .btnModal{
-    border-color: white !important;
-    background-color: white !important;
+    background-color: #003F63 !important; 
+    color: white !important; 
+    font-family: Cormorant, serif !important;
 }
